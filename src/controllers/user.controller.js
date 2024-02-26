@@ -167,7 +167,7 @@ const logoutUser = asyncHandler(async(req, res) => {
             }
         },
         {
-            new: true
+            new: true           //here i have set the new because we want to pass the ew refreshtoken here that is "1"
         }
     )
 

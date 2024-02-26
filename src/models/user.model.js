@@ -53,7 +53,7 @@ const userSchema = new Schema(
 )
 
 userSchema.pre("save", async function (next) {
-    if(!this.isModified("password")) return next();
+    if(!this.isModified("password")) return next();         //here i have applied this because ..when we save any other data..then this function should not be called. this function should be called only when the password field is modified and called before saving to the database;
 
     this.password = await bcrypt.hash(this.password, 10)
     next()

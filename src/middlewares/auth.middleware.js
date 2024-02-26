@@ -5,7 +5,7 @@ import { User } from "../models/user.model.js";
 
 export const verifyJWT = asyncHandler(async(req, _, next) => {
     try {
-        const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "")
+        const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "")           //cookies are for the desktop ..if cookies are note present then user may send the custom header. for mobile applicatioin cookies are note presnt so that why we also hae to check the authorizatoin
         
         // console.log(token);
         if (!token) {
